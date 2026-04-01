@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplică pentru Județul Tău | Sun to Sale Media</title>
+  <meta name="description" content="Aplică acum pentru exclusivitate în județul tău. Lucrăm cu o singură firmă de instalare panouri fotovoltaice per județ. Discuție inițială gratuită.">
+  <meta property="og:title" content="Aplică pentru Județul Tău | Sun to Sale Media">
+  <meta property="og:description" content="Verifică dacă județul tău e disponibil și aplică pentru parteneriat exclusiv.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <div class="nav__logo-mark">S</div>
+      Sun to Sale Media
+    </a>
+    <div class="nav__links">
+      <a href="cum-functioneaza.html" class="nav__link">Cum Funcționează</a>
+      <a href="oferta.html" class="nav__link">Oferta</a>
+      <a href="despre-noi.html" class="nav__link">Despre Noi</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+      <a href="contact.html" class="btn btn--primary nav__cta">Rezervă-ți Județul</a>
+    </div>
+    <button class="nav__hamburger" aria-label="Deschide meniu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile">
+    <a href="cum-functioneaza.html" class="nav__link">Cum Funcționează</a>
+    <a href="oferta.html" class="nav__link">Oferta</a>
+    <a href="despre-noi.html" class="nav__link">Despre Noi</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+    <a href="contact.html" class="btn btn--primary">Rezervă-ți Județul</a>
+  </div>
+</nav>
+
+<main>
+
+  <section class="page-hero">
+    <p class="text-label">Pas 1 din 3</p>
+    <h1>Aplică pentru <em class="accent">Județul Tău</em></h1>
+    <p>Completează formularul de mai jos. Îți răspundem în cel mult 30 de minute și stabilim un call de 30 min fără nicio obligație.</p>
+  </section>
+
+  <!-- APPLICATION FORM + SIDEBAR -->
+  <section class="section-pad" style="background:#0A0A0A;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:start;max-width:1100px;margin:0 auto;">
+
+        <!-- Form -->
+        <div class="reveal">
+          <p class="text-label" style="margin-bottom:20px;">Formular de aplicare</p>
+          <form class="form" id="apply-form" action="#" method="POST">
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="name">Numele tău *</label>
+                <input class="form__input" type="text" id="name" name="name" placeholder="Ion Popescu" required>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="phone">Număr de telefon *</label>
+                <input class="form__input" type="tel" id="phone" name="phone" placeholder="07XX XXX XXX" required>
+              </div>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="email">Email *</label>
+              <input class="form__input" type="email" id="email" name="email" placeholder="ion@firmatadesolar.ro" required>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="company">Numele firmei *</label>
+              <input class="form__input" type="text" id="company" name="company" placeholder="Solar Install SRL" required>
+            </div>
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="county">Județul pentru care aplici *</label>
+                <select class="form__select" id="county" name="county" required>
+                  <option value="">Selectează județul...</option>
+                  <option>Alba</option><option>Arad</option><option>Argeș</option>
+                  <option>Bacău</option><option>Bihor</option><option>Bistrița-Năsăud</option>
+                  <option>Botoșani</option><option>Brașov</option><option>Brăila</option>
+                  <option>Buzău</option><option>Caraș-Severin</option><option>Călărași</option>
+                  <option>Cluj</option><option>Constanța</option><option>Covasna</option>
+                  <option>Dâmbovița</option><option>Dolj</option><option>Galați</option>
+                  <option>Giurgiu</option><option>Gorj</option><option>Harghita</option>
+                  <option>Hunedoara</option><option>Ialomița</option><option>Iași</option>
+                  <option>Ilfov</option><option>Maramureș</option><option>Mehedinți</option>
+                  <option>Mureș</option><option>Neamț</option><option>Olt</option>
+                  <option>Prahova</option><option>Satu Mare</option><option>Sălaj</option>
+                  <option>Sibiu</option><option>Suceava</option><option>Teleorman</option>
+                  <option>Timiș</option><option>Tulcea</option><option>Vaslui</option>
+                  <option>Vâlcea</option><option>Vrancea</option><option>București</option>
+                </select>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="team-size">Mărimea echipei</label>
+                <select class="form__select" id="team-size" name="team-size">
+                  <option value="">Selectează...</option>
+                  <option>1–3 angajați</option>
+                  <option>4–10 angajați</option>
+                  <option>11–20 angajați</option>
+                  <option>20+ angajați</option>
+                </select>
+              </div>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="monthly-installs">Câte instalări faci pe lună acum?</label>
+              <select class="form__select" id="monthly-installs" name="monthly-installs">
+                <option value="">Selectează...</option>
+                <option>0–2 pe lună</option>
+                <option>3–5 pe lună</option>
+                <option>6–10 pe lună</option>
+                <option>10+ pe lună</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="current-ads">Rulezi reclame online în prezent?</label>
+              <select class="form__select" id="current-ads" name="current-ads">
+                <option value="">Selectează...</option>
+                <option>Nu, nicio reclamă</option>
+                <option>Da, Facebook / Instagram</option>
+                <option>Da, Google</option>
+                <option>Da, ambele</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="goal">Ce vrei să realizezi? (opțional)</label>
+              <textarea class="form__textarea" id="goal" name="goal" placeholder="Ex: Vreau să ajung la 8 instalări pe lună și să nu mai depind de recomandări..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg form__submit" style="width:100%;justify-content:center;">
+              Trimite Aplicația →
+            </button>
+            <p class="form__note">Îți răspundem în max 30 de minute în zilele lucrătoare · Fără obligații</p>
+          </form>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="reveal-right" style="position:sticky;top:100px;">
+          <div style="background:#111111;border:1px solid #2A2A2A;border-radius:8px;padding:32px;margin-bottom:20px;">
+            <p class="text-label" style="margin-bottom:16px;">Ce se întâmplă după</p>
+            <div class="timeline">
+              <div class="timeline__item">
+                <div class="timeline__dot">1</div>
+                <div class="timeline__content">
+                  <h4>Primești răspuns în 30 min</h4>
+                  <p>Te contactăm pe WhatsApp sau email pentru a confirma că am primit aplicația ta.</p>
+                </div>
+              </div>
+              <div class="timeline__item">
+                <div class="timeline__dot">2</div>
+                <div class="timeline__content">
+                  <h4>Call de 30 min — gratuit</h4>
+                  <p>Discutăm despre județul tău, concurență, obiective, și dacă suntem potriviți unul pentru altul.</p>
+                </div>
+              </div>
+              <div class="timeline__item">
+                <div class="timeline__dot">3</div>
+                <div class="timeline__content">
+                  <h4>Propunere personalizată</h4>
+                  <p>Dacă există potrivire, trimitem propunerea completă cu plan de campanie specific județului tău.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.2);border-radius:6px;padding:22px;">
+            <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-bottom:10px;font-family:'Space Grotesk',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;">Garanția noastră</p>
+            <p style="font-size:0.92rem;color:rgba(255,255,255,0.8);line-height:1.65;">2 clienți garantați în 30 de zile — sau îți returnăm integral retainerul.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="index.html" class="nav__logo">
+          <div class="nav__logo-mark">S</div>
+          Sun to Sale Media
+        </a>
+        <p>Sistemul complet de leaduri &amp; vânzări pentru firme de instalare panouri fotovoltaice din România.</p>
+      </div>
+      <div class="footer__col">
+        <h5>Servicii</h5>
+        <div class="footer__links">
+          <a href="oferta.html" class="footer__link">Sistemul Sun-to-Sale</a>
+          <a href="cum-functioneaza.html" class="footer__link">Cum Funcționează</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h5>Companie</h5>
+        <div class="footer__links">
+          <a href="despre-noi.html" class="footer__link">Despre Noi</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h5>Contact</h5>
+        <div class="footer__links">
+          <a href="mailto:hello@suntosale.ro" class="footer__link">hello@suntosale.ro</a>
+          <span class="footer__link">Răspuns în 30 min</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2024 Sun to Sale Media. Toate drepturile rezervate.</p>
+      <div class="footer__legal">
+        <a href="#">Politica de Confidențialitate</a>
+        <a href="#">Termeni și Condiții</a>
+        <a href="#">GDPR</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
