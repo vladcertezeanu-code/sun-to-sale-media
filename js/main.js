@@ -7,6 +7,23 @@ gsap.registerPlugin(ScrollTrigger);
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/* SMOOTH / MOMENTUM SCROLL (Lenis + ScrollTrigger)
+============================================================= */
+if (!prefersReducedMotion && window.innerWidth > 768 && typeof Lenis !== 'undefined') {
+  const lenis = new Lenis({
+    lerp: 0.08,
+    smoothWheel: true,
+  });
+
+  // Sync Lenis scroll position with GSAP ScrollTrigger
+  lenis.on('scroll', ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+  gsap.ticker.lagSmoothing(0);
+}
+
 /* NAV — scroll behavior + mobile toggle
 ============================================================= */
 const nav = document.getElementById('nav');
@@ -58,28 +75,29 @@ if (!prefersReducedMotion) {
   /* ── HERO — scroll-driven video + page flip reveal ────────── */
   /* 3D ANIMATION CREATOR */
 
-  const video      = document.getElementById('hero-video');
-  const heroPage   = document.getElementById('hero-page');
+  const video = document.getElementById('hero-video');
+  const heroPage = document.getElementById('hero-page');
   const videoStage = document.getElementById('hero-video-stage');
+  const isMobile = window.innerWidth <= 768;
 
-  if (video && heroPage) {
+  if (video && heroPage && !isMobile) {
 
     // ── CONFIG ──
-    const SCROLL_LENGTH   = '+=350%';
-    const VIDEO_END_AT    = 0.65;
+    const SCROLL_LENGTH = '+=350%';
+    const VIDEO_END_AT = 0.65;
     const PAGE_FLIP_START = 0.58;
-    const PAGE_FLIP_END   = 0.92;
-    const VIDEO_FADE_AT   = 0.55;
+    const PAGE_FLIP_END = 0.92;
+    const VIDEO_FADE_AT = 0.55;
 
     // ── CONFIG — text entrance ──
     const TEXT_SLIDE_START = 0.60;
-    const TEXT_SLIDE_END   = 0.92;
-    const TEXT_OFFSET      = 120;  // vw percentage each side slides from
+    const TEXT_SLIDE_END = 0.92;
+    const TEXT_OFFSET = 120;  // vw percentage each side slides from
 
     // ── Initial states ──
     gsap.set(heroPage, { opacity: 0 });
     gsap.set('.hero__page .sl', { x: -window.innerWidth * (TEXT_OFFSET / 100), opacity: 0 });
-    gsap.set('.hero__page .sr', { x:  window.innerWidth * (TEXT_OFFSET / 100), opacity: 0 });
+    gsap.set('.hero__page .sr', { x: window.innerWidth * (TEXT_OFFSET / 100), opacity: 0 });
 
     // ── Boot: wait for video to be ready ──
     function boot() {
@@ -94,7 +112,7 @@ if (!prefersReducedMotion) {
           trigger: '.hero',
           start: 'top top',
           end: SCROLL_LENGTH,
-          scrub: 0.5,
+          scrub: 1.5,
           pin: true,
           pinSpacing: true,
           anticipatePin: 1,
@@ -245,7 +263,7 @@ document.querySelectorAll('.faq__item').forEach(item => {
 const TAKEN_COUNTIES = ['Ilfov', 'Cluj', 'Timis', 'Brasov', 'Prahova'];
 
 const countySelect = document.getElementById('county-select');
-const countyBtn    = document.getElementById('county-check-btn');
+const countyBtn = document.getElementById('county-check-btn');
 const countyResult = document.getElementById('county-result');
 
 if (countySelect && countyBtn && countyResult) {
