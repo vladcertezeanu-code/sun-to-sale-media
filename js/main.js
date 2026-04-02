@@ -52,6 +52,16 @@ if (hamburger && mobileNav) {
   });
 }
 
+/* SCROLL HINT ARROW
+============================================================= */
+const scrollHint = document.getElementById('scroll-hint');
+if (scrollHint) {
+  setTimeout(() => scrollHint.classList.add('visible'), 1500);
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 30) scrollHint.classList.remove('visible');
+  }, { passive: true });
+}
+
 /* SMOOTH SCROLL
 ============================================================= */
 document.querySelectorAll('a[href^="#"]').forEach(a => {

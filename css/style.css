@@ -252,6 +252,41 @@ section { position: relative; }
   pointer-events: none;
 }
 
+.hero__scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  color: rgba(255, 255, 255, 0.25);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  animation: scrollBob 2s ease-in-out infinite;
+  animation-play-state: paused;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.hero__scroll-hint.visible {
+  opacity: 1;
+  animation-play-state: running;
+}
+.hero__scroll-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+@keyframes scrollBob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
 /* Hero content page — slides in from left/right after video */
 .hero__page {
   position: absolute;

@@ -71,6 +71,12 @@
     <!-- Layer 1: Scroll-driven video (fullscreen, on top) -->
     <div class="hero__video-stage" id="hero-video-stage">
       <video class="hero__video" id="hero-video" src="assets/hero-explode.mp4" muted playsinline preload="auto"></video>
+      <div class="hero__scroll-hint" id="scroll-hint">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+        <span class="hero__scroll-text">scroll</span>
+      </div>
     </div>
 
     <!-- Layer 2: Hero content (text slides in from left/right) -->
