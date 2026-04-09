@@ -1,5 +1,5 @@
 /* =============================================================
-   Sun to Sale Media — Main JS
+   Sun to Sale Media - Main JS
    GSAP + ScrollTrigger · Nav · FAQ · County Checker
 ============================================================= */
 
@@ -24,7 +24,7 @@ if (!prefersReducedMotion && window.innerWidth > 768 && typeof Lenis !== 'undefi
   gsap.ticker.lagSmoothing(0);
 }
 
-/* NAV — scroll behavior + mobile toggle
+/* NAV - scroll behavior + mobile toggle
 ============================================================= */
 const nav = document.getElementById('nav');
 
@@ -82,7 +82,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 ============================================================= */
 if (!prefersReducedMotion) {
 
-  /* ── HERO — scroll-driven video + page flip reveal ────────── */
+  /* ── HERO - scroll-driven video + page flip reveal ────────── */
   /* 3D ANIMATION CREATOR */
 
   const video = document.getElementById('hero-video');
@@ -99,7 +99,7 @@ if (!prefersReducedMotion) {
     const PAGE_FLIP_END = 0.92;
     const VIDEO_FADE_AT = 0.55;
 
-    // ── CONFIG — text entrance ──
+    // ── CONFIG - text entrance ──
     const TEXT_SLIDE_START = 0.60;
     const TEXT_SLIDE_END = 0.92;
     const TEXT_OFFSET = 120;  // vw percentage each side slides from
@@ -140,7 +140,7 @@ if (!prefersReducedMotion) {
         duration: TEXT_SLIDE_START - VIDEO_FADE_AT
       }, VIDEO_FADE_AT);
 
-      // Background crossfade — hero page appears with #0A0A0A bg
+      // Background crossfade - hero page appears with #0A0A0A bg
       tl.to(heroPage, {
         opacity: 1,
         ease: 'none',
@@ -174,12 +174,13 @@ if (!prefersReducedMotion) {
     video.load();
   }
 
-  /* 3D ANIMATION CREATOR — END */
+  /* 3D ANIMATION CREATOR - END */
 
   /* Generic .reveal elements */
   gsap.utils.toArray('.reveal').forEach(el => {
     gsap.to(el, {
       opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+      clearProps: 'transform',
       scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
     });
   });
@@ -187,6 +188,7 @@ if (!prefersReducedMotion) {
   gsap.utils.toArray('.reveal-left').forEach(el => {
     gsap.to(el, {
       opacity: 1, x: 0, duration: 0.7, ease: 'power2.out',
+      clearProps: 'transform',
       scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
     });
   });
@@ -194,6 +196,7 @@ if (!prefersReducedMotion) {
   gsap.utils.toArray('.reveal-right').forEach(el => {
     gsap.to(el, {
       opacity: 1, x: 0, duration: 0.7, ease: 'power2.out',
+      clearProps: 'transform',
       scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
     });
   });
@@ -204,6 +207,7 @@ if (!prefersReducedMotion) {
       { opacity: 0, y: 28 },
       {
         opacity: 1, y: 0, duration: 0.6, stagger: 0.09, ease: 'power2.out',
+        clearProps: 'transform',
         scrollTrigger: { trigger: grid, start: 'top 84%', toggleActions: 'play none none none' }
       }
     );

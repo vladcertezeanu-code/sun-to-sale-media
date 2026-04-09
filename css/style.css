@@ -1,5 +1,5 @@
 /* =============================================================
-   Sun to Sale Media — Main Stylesheet
+   Sun to Sale Media - Main Stylesheet
    Colors: #0A0A0A (bg) · #111111 (sections) · #F5A623 (accent)
            #FFFFFF (text) · #2A2A2A (borders)
    Fonts:  Space Grotesk (headings) · DM Sans (body)
@@ -225,7 +225,7 @@ section { position: relative; }
 }
 .nav__mobile .btn { margin-top: 16px; justify-content: center; }
 
-/* HERO — Video Scroll + Page Reveal
+/* HERO - Video Scroll + Page Reveal
 ============================================================= */
 .hero {
   position: relative;
@@ -243,6 +243,7 @@ section { position: relative; }
   align-items: center;
   justify-content: center;
   background: #000000;
+  pointer-events: none;
 }
 
 .hero__video {
@@ -258,7 +259,7 @@ section { position: relative; }
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
-  color: rgba(255, 255, 255, 0.25);
+  color: #F5A623;
   opacity: 0;
   transition: opacity 0.8s ease;
   animation: scrollBob 2s ease-in-out infinite;
@@ -279,7 +280,7 @@ section { position: relative; }
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.25);
+  color: #F5A623;
 }
 
 @keyframes scrollBob {
@@ -287,7 +288,7 @@ section { position: relative; }
   50% { transform: translateX(-50%) translateY(8px); }
 }
 
-/* Hero content page — slides in from left/right after video */
+/* Hero content page - slides in from left/right after video */
 .hero__page {
   position: absolute;
   inset: 0;
@@ -423,16 +424,28 @@ section { position: relative; }
 
 .problem-card {
   background: #111111;
-  border: 1px solid #2A2A2A;
-  border-radius: 6px;
-  padding: 26px 22px;
-  transition: border-color 0.25s, transform 0.25s;
+  border: 2px solid #2A2A2A;
+  border-radius: 10px;
+  padding: 32px 22px 26px;
+  text-align: center;
+  transform: translateY(0) scale(1);
+  transition: all 0.5s cubic-bezier(.165,.84,.44,1);
+  will-change: transform, box-shadow, background, border-color;
 }
 .problem-card:hover {
-  border-color: rgba(245,166,35,0.28);
-  transform: translateY(-2px);
+  border-color: rgba(245,166,35,0.5);
+  transform: translateY(-24px) scale(1.04);
+  background: #1a1a1a;
+  box-shadow:
+    0 35px 60px rgba(0,0,0,0.4),
+    0 15px 30px rgba(245,166,35,0.08),
+    0 0 40px rgba(245,166,35,0.06);
 }
-.problem-card__icon { font-size: 1.4rem; margin-bottom: 12px; }
+.problem-card__icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
 .problem-card__title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.92rem;
@@ -460,10 +473,26 @@ section { position: relative; }
 
 .pillar-card {
   background: #0A0A0A;
-  border: 1px solid #2A2A2A;
+  border: 2px solid #2A2A2A;
   border-top: 3px solid #F5A623;
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 36px 28px;
+  transform: translateY(0) scale(1);
+  transition: all 0.5s cubic-bezier(.165,.84,.44,1);
+  will-change: transform, box-shadow, background, border-color;
+}
+.pillar-card:hover {
+  transform: translateY(-24px) scale(1.04);
+  background: #1a1a1a;
+  border-color: #2A2A2A;
+  border-top-color: #FFB840;
+  box-shadow:
+    0 35px 60px rgba(0,0,0,0.4),
+    0 15px 30px rgba(245,166,35,0.08),
+    0 0 40px rgba(245,166,35,0.06);
+}
+.pillar-card:hover .pillar-card__num {
+  color: rgba(245,166,35,0.7);
 }
 .pillar-card__num {
   font-family: 'Space Grotesk', sans-serif;
@@ -473,6 +502,7 @@ section { position: relative; }
   letter-spacing: -0.05em;
   line-height: 1;
   margin-bottom: 14px;
+  transition: color 0.5s cubic-bezier(.165,.84,.44,1);
 }
 .pillar-card h3 { margin-bottom: 12px; }
 .pillar-card > p {
@@ -503,23 +533,93 @@ section { position: relative; }
 ============================================================= */
 .bonuses { background: #0A0A0A; }
 
-.bonuses__value {
-  text-align: center;
-  margin-bottom: 48px;
+/* Mega bonus card */
+.bonus-mega-card {
+  background: #111111;
+  border: 2px solid #2A2A2A;
+  border-radius: 10px;
+  padding: 0;
+  overflow: hidden;
+  transform: translateY(0) scale(1);
+  transition: all 0.5s cubic-bezier(.165,.84,.44,1);
+  will-change: transform, box-shadow, background, border-color;
 }
-.bonuses__value-tag {
-  display: inline-flex;
+.bonus-mega-card:hover {
+  transform: translateY(-24px) scale(1.04);
+  background: #1a1a1a;
+  border-color: rgba(245,166,35,0.5);
+  box-shadow:
+    0 35px 60px rgba(0,0,0,0.4),
+    0 15px 30px rgba(245,166,35,0.08),
+    0 0 40px rgba(245,166,35,0.06);
+}
+.bonus-mega-card__item {
+  display: flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(245,166,35,0.08);
-  border: 1px solid rgba(245,166,35,0.2);
-  border-radius: 4px;
-  padding: 10px 20px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.88rem;
-  color: rgba(255,255,255,0.75);
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 32px;
+  border-bottom: 1px solid #2A2A2A;
 }
-.bonuses__value-tag strong { color: #F5A623; }
+.bonus-mega-card__item:last-of-type {
+  border-bottom: none;
+}
+.bonus-mega-card__left {
+  flex: 1;
+}
+.bonus-mega-card__left h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.bonus-mega-card__left p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+}
+.bonus-mega-card__price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.35);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.bonus-mega-card__total {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 28px 32px;
+  background: rgba(245,166,35,0.05);
+  border-top: 1px solid rgba(245,166,35,0.15);
+}
+.bonus-mega-card__total-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+}
+.bonus-mega-card__total-old {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e04040;
+  text-decoration: line-through;
+}
+.bonus-mega-card__total-new {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #F5A623;
+}
+.bonus-mega-card__total-sub {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+}
 
 .bonuses__grid {
   display: grid;
@@ -1217,7 +1317,7 @@ section { position: relative; }
   margin-bottom: 2px;
 }
 
-/* ANIMATIONS — initial states for GSAP
+/* ANIMATIONS - initial states for GSAP
 ============================================================= */
 .reveal {
   opacity: 0;
