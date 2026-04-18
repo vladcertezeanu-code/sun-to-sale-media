@@ -248,5 +248,49 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="js/main.js" defer></script>
+<script>
+document.getElementById('apply-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const btn = form.querySelector('.form__submit');
+  const originalText = btn.textContent;
+
+  btn.disabled = true;
+  btn.textContent = 'Se trimite...';
+
+  const data = {
+    name: form.name.value,
+    phone: form.phone.value,
+    email: form.email.value,
+    companyName: form.company.value,
+    county: form.county.value,
+    teamSize: form['team-size'].value,
+    monthlyInstalls: form['monthly-installs'].value,
+    currentAds: form['current-ads'].value,
+    goal: form.goal.value
+  };
+
+  try {
+    await fetch('https://services.leadconnectorhq.com/hooks/iXYlx6sDUcY9TsiSQ5RJ/webhook-trigger/86c259b1-9e79-4bb5-9580-1e846081e8e3', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+      mode: 'no-cors'
+    });
+
+    form.innerHTML = '<div class="form__success"><div class="form__success-icon">✓</div><h3>Aplicația a fost trimisă!</h3><p>Îți răspundem în cel mult 30 de minute. Verifică-ți telefonul și email-ul.</p></div>';
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = originalText;
+    const existing = form.querySelector('.form__error');
+    if (existing) existing.remove();
+    const errorEl = document.createElement('p');
+    errorEl.className = 'form__error';
+    errorEl.textContent = 'A apărut o eroare. Te rugăm să încerci din nou sau să ne contactezi direct la hello@suntosale.ro';
+    btn.parentNode.insertBefore(errorEl, btn.nextSibling);
+  }
+});
+</script>
 </body>
 </html>
