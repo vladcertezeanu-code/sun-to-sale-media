@@ -259,23 +259,21 @@ document.getElementById('apply-form').addEventListener('submit', async function(
   btn.disabled = true;
   btn.textContent = 'Se trimite...';
 
-  const data = {
-    name: form.name.value,
-    phone: form.phone.value,
-    email: form.email.value,
-    companyName: form.company.value,
-    county: form.county.value,
-    teamSize: form['team-size'].value,
-    monthlyInstalls: form['monthly-installs'].value,
-    currentAds: form['current-ads'].value,
-    goal: form.goal.value
-  };
+  const params = new URLSearchParams();
+  params.append('name', form.name.value);
+  params.append('phone', form.phone.value);
+  params.append('email', form.email.value);
+  params.append('companyName', form.company.value);
+  params.append('county', form.county.value);
+  params.append('teamSize', form['team-size'].value);
+  params.append('monthlyInstalls', form['monthly-installs'].value);
+  params.append('currentAds', form['current-ads'].value);
+  params.append('goal', form.goal.value);
 
   try {
     await fetch('https://services.leadconnectorhq.com/hooks/iXYlx6sDUcY9TsiSQ5RJ/webhook-trigger/86c259b1-9e79-4bb5-9580-1e846081e8e3', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
+      body: params,
       mode: 'no-cors'
     });
 
