@@ -12,14 +12,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="assets/favicon.ico">
+  <link rel="icon" href="assets/s2sLogo.png" type="image/png">
 </head>
 <body>
 
 <nav class="nav" id="nav">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
-      <div class="nav__logo-mark">S</div>
+      <div class="nav__logo-mark"><img src="assets/s2sLogo.png" alt="Sun to Sale Media"></div>
       Sun to Sale Media
     </a>
     <div class="nav__links">
@@ -47,13 +47,33 @@
   <section class="page-hero">
     <p class="text-label">Pas 1 din 3</p>
     <h1>Aplică pentru <em class="accent">Județul Tău</em></h1>
-    <p>Completează formularul de mai jos. Îți răspundem în cel mult 30 de minute și stabilim un call de 30 min fără nicio obligație.</p>
+    <p>Completează formularul de mai jos. Îți răspundem în cel mult 30 de minute și stabilim un apel de 30 min fără nicio obligație.</p>
   </section>
+
+    <!-- PROOF BAR -->
+    <section class="proof-bar">
+      <div class="proof-bar__inner">
+        <div class="proof-bar__item">
+          <div class="proof-bar__number" data-count="50000" data-suffix="+">50.000+</div>
+          <div class="proof-bar__label">Ad Spend Gestionat</div>
+        </div>
+        <div class="proof-bar__sep"></div>
+        <div class="proof-bar__item">
+          <div class="proof-bar__number" data-count="30" data-suffix=" min">30 min</div>
+          <div class="proof-bar__label">Timp Maxim de Răspuns</div>
+        </div>
+        <div class="proof-bar__sep"></div>
+        <div class="proof-bar__item">
+          <div class="proof-bar__number">1</div>
+          <div class="proof-bar__label">Firmă per Județ</div>
+        </div>
+      </div>
+    </section>
 
   <!-- APPLICATION FORM + SIDEBAR -->
   <section class="section-pad" style="background:#0A0A0A;">
     <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:start;max-width:1100px;margin:0 auto;">
+      <div class="contact-layout">
 
         <!-- Form -->
         <div class="reveal">
@@ -141,8 +161,8 @@
         </div>
 
         <!-- Sidebar -->
-        <div class="reveal-right" style="position:sticky;top:100px;">
-          <div style="background:#111111;border:1px solid #2A2A2A;border-radius:8px;padding:32px;margin-bottom:20px;">
+        <div class="reveal-right contact-sidebar">
+          <div class="contact-sidebar__box">
             <p class="text-label" style="margin-bottom:16px;">Ce se întâmplă după</p>
             <div class="timeline">
               <div class="timeline__item">
@@ -155,7 +175,7 @@
               <div class="timeline__item">
                 <div class="timeline__dot">2</div>
                 <div class="timeline__content">
-                  <h4>Call de 30 min - gratuit</h4>
+                  <h4>Apel de 30 min - gratuit</h4>
                   <p>Discutăm despre județul tău, concurență, obiective, și dacă suntem potriviți unul pentru altul.</p>
                 </div>
               </div>
@@ -169,9 +189,9 @@
             </div>
           </div>
 
-          <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.2);border-radius:6px;padding:22px;">
-            <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-bottom:10px;font-family:'Space Grotesk',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;">Garanția noastră</p>
-            <p style="font-size:0.92rem;color:rgba(255,255,255,0.8);line-height:1.65;">2 clienți garantați în 30 de zile - sau îți returnăm integral retainerul.</p>
+          <div class="contact-sidebar__guarantee">
+            <p class="contact-sidebar__guarantee-label">Garanția noastră</p>
+            <p class="contact-sidebar__guarantee-text">2 clienți garantați în 30 de zile - sau îți returnăm integral retainerul.</p>
           </div>
         </div>
 
@@ -186,7 +206,7 @@
     <div class="footer__top">
       <div class="footer__brand">
         <a href="index.html" class="nav__logo">
-          <div class="nav__logo-mark">S</div>
+          <div class="nav__logo-mark"><img src="assets/s2sLogo.png" alt="Sun to Sale Media"></div>
           Sun to Sale Media
         </a>
         <p>Sistemul complet de prospecți &amp; vânzări pentru firme de instalare panouri fotovoltaice din România.</p>
