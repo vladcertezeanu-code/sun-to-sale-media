@@ -1614,6 +1614,10 @@ section { position: relative; }
   .contact-sidebar {
     position: static;
   }
+  .contact-sidebar.reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 @media (max-width: 768px) {
