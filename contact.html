@@ -52,25 +52,6 @@
     <p>Completează formularul de mai jos. Îți răspundem în cel mult 30 de minute și stabilim un apel de 30 min fără nicio obligație.</p>
   </section>
 
-    <!-- PROOF BAR -->
-    <section class="proof-bar">
-      <div class="proof-bar__inner">
-        <div class="proof-bar__item">
-          <div class="proof-bar__number" data-count="50000" data-suffix="€+">50.000€+</div>
-          <div class="proof-bar__label">Ad Spend Gestionat</div>
-        </div>
-        <div class="proof-bar__sep"></div>
-        <div class="proof-bar__item">
-          <div class="proof-bar__number" data-count="30" data-suffix=" min">30 min</div>
-          <div class="proof-bar__label">Timp Maxim de Răspuns</div>
-        </div>
-        <div class="proof-bar__sep"></div>
-        <div class="proof-bar__item">
-          <div class="proof-bar__number">1</div>
-          <div class="proof-bar__label">Firmă per Județ</div>
-        </div>
-      </div>
-    </section>
 
   <!-- APPLICATION FORM + SIDEBAR -->
   <section class="section-pad" style="background:#0A0A0A;">
@@ -185,7 +166,7 @@
                 <div class="timeline__dot">3</div>
                 <div class="timeline__content">
                   <h4>Propunere personalizată</h4>
-                  <p>Dacă există potrivire, trimitem propunerea completă cu plan de campanie specific județului tău.</p>
+                  <p>Daca ne potrivim, îți trimitem propunerea completă cu plan de campanie specific județului tău.</p>
                 </div>
               </div>
             </div>
@@ -193,7 +174,7 @@
 
           <div class="contact-sidebar__guarantee">
             <p class="contact-sidebar__guarantee-label">Garanția noastră</p>
-            <p class="contact-sidebar__guarantee-text">2 clienți garantați în 30 de zile - sau îți returnăm integral retainerul.</p>
+            <p class="contact-sidebar__guarantee-text">2 clienți garantați în 30 de zile sau îți returnăm integral retainerul.</p>
           </div>
         </div>
 
@@ -230,7 +211,7 @@
       <div class="footer__col">
         <h5>Contact</h5>
         <div class="footer__links">
-          <a href="mailto:hello@suntosale.ro" class="footer__link">hello@suntosale.ro</a>
+          <a href="mailto:vlad@suntosale.com" class="footer__link">vlad@suntosale.com</a>
           <span class="footer__link">Răspuns în 30 min</span>
         </div>
       </div>
@@ -287,7 +268,7 @@ document.getElementById('apply-form').addEventListener('submit', async function(
     if (existing) existing.remove();
     const errorEl = document.createElement('p');
     errorEl.className = 'form__error';
-    errorEl.textContent = 'A apărut o eroare. Te rugăm să încerci din nou sau să ne contactezi direct la hello@suntosale.ro';
+    errorEl.textContent = 'A apărut o eroare. Te rugăm să încerci din nou sau să ne contactezi direct la vlad@suntosale.com';
     btn.parentNode.insertBefore(errorEl, btn.nextSibling);
   }
 });

@@ -9,8 +9,9 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 
 /* SMOOTH / MOMENTUM SCROLL (Lenis + ScrollTrigger)
 ============================================================= */
+let lenis = null;
 if (!prefersReducedMotion && window.innerWidth > 768 && typeof Lenis !== 'undefined') {
-  const lenis = new Lenis({
+  lenis = new Lenis({
     lerp: 0.08,
     smoothWheel: true,
   });
@@ -256,6 +257,55 @@ if (!prefersReducedMotion) {
           { boxShadow: '0 0 0px rgba(245,166,35,0)', borderColor: 'rgba(245,166,35,0.2)' },
           { boxShadow: '0 0 60px rgba(245,166,35,0.12)', borderColor: 'rgba(245,166,35,0.5)', duration: 1.2, ease: 'power2.out' }
         );
+      }
+    });
+  }
+
+  /* Onboarding pinned slides (cum functioneaza) */
+  const onboardingSection = document.getElementById('onboarding-pinned');
+  if (onboardingSection) {
+    const slides = gsap.utils.toArray('.onboarding-slide', onboardingSection);
+    const n = slides.length;
+    gsap.set(slides, { opacity: 0, xPercent: 0 });
+    gsap.set(slides[0], { opacity: 1, xPercent: 0 });
+
+    const holdRatio = 0.65;
+    const transRatio = 1 - holdRatio;
+
+    const defaultLerp = 0.08;
+    const snappyLerp = 0.2;
+    const setLerp = (v) => { if (lenis) lenis.options.lerp = v; };
+
+    ScrollTrigger.create({
+      trigger: onboardingSection,
+      start: 'top top',
+      end: () => `+=${(n - 1) * window.innerHeight}`,
+      pin: true,
+      scrub: 0.4,
+      invalidateOnRefresh: true,
+      onEnter: () => setLerp(snappyLerp),
+      onEnterBack: () => setLerp(snappyLerp),
+      onLeave: () => setLerp(defaultLerp),
+      onLeaveBack: () => setLerp(defaultLerp),
+      onUpdate: (self) => {
+        const p = self.progress * (n - 1);
+        const current = Math.floor(Math.min(p, n - 1));
+        const frac = Math.min(p - current, 1);
+        let t = 0;
+        if (frac > holdRatio) t = (frac - holdRatio) / transRatio;
+        const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+
+        slides.forEach((slide, i) => {
+          let opacity = 0, xPercent = 0;
+          if (i === current) {
+            opacity = 1 - ease;
+            xPercent = -ease * 40;
+          } else if (i === current + 1) {
+            opacity = ease;
+            xPercent = (1 - ease) * 40;
+          }
+          gsap.set(slide, { opacity, xPercent });
+        });
       }
     });
   }
