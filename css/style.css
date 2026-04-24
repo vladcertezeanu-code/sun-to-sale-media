@@ -1371,7 +1371,97 @@ section { position: relative; }
   .onboarding-slide h2 { font-size: 1.8rem; }
   .onboarding-slide__sub { font-size: 0.95rem; }
 }
+.onboarding-slide__scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #F5A623;
+  animation: scrollBob 2s ease-in-out infinite;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.onboarding-slide__scroll-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #F5A623;
+}
+
+.onboarding-progress {
+  position: absolute;
+  left: 50%;
+  bottom: 56px;
+  transform: translateX(-50%);
+  width: min(640px, 86vw);
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  --p: 0;
+}
+.onboarding-progress.visible { opacity: 1; }
+.onboarding-progress__track,
+.onboarding-progress__fill {
+  position: absolute;
+  top: 17px;
+  height: 2px;
+}
+.onboarding-progress__track {
+  left: 18px;
+  right: 18px;
+  background: rgba(255,255,255,0.18);
+}
+.onboarding-progress__fill {
+  left: 18px;
+  width: calc(var(--p) * (100% - 36px));
+  background: #F5A623;
+  transition: width 0.15s linear;
+}
+.onboarding-progress__steps {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.onboarding-progress__step {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.25);
+  background: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.04em;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+.onboarding-progress__step.active {
+  border-color: #F5A623;
+  color: #F5A623;
+}
+@media (max-width: 600px) {
+  .onboarding-progress { bottom: 40px; width: 92vw; }
+  .onboarding-progress__step {
+    width: 30px; height: 30px; font-size: 0.6rem;
+  }
+  .onboarding-progress__track,
+  .onboarding-progress__fill { top: 14px; left: 15px; }
+  .onboarding-progress__track { right: 15px; }
+  .onboarding-progress__fill { width: calc(var(--p) * (100% - 30px)); }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .onboarding-progress { display: none; }
+  .onboarding-slide__scroll-hint { display: none; }
   .onboarding-pinned { height: auto; }
   .onboarding-pinned__stage { height: auto; }
   .onboarding-slide {

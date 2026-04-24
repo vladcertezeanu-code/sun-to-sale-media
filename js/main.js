@@ -269,6 +269,11 @@ if (!prefersReducedMotion) {
     gsap.set(slides, { opacity: 0, xPercent: 0 });
     gsap.set(slides[0], { opacity: 1, xPercent: 0 });
 
+    const progressEl = document.getElementById('onboarding-progress');
+    const progressSteps = progressEl
+      ? progressEl.querySelectorAll('.onboarding-progress__step')
+      : [];
+
     const holdRatio = 0.65;
     const transRatio = 1 - holdRatio;
 
@@ -289,6 +294,17 @@ if (!prefersReducedMotion) {
       onLeaveBack: () => setLerp(defaultLerp),
       onUpdate: (self) => {
         const p = self.progress * (n - 1);
+        if (progressEl) {
+          progressEl.classList.toggle('visible', p >= 1);
+          const stepsCount = progressSteps.length;
+          const f = stepsCount > 1
+            ? Math.max(0, Math.min(1, (p - 1) / (stepsCount - 1)))
+            : 0;
+          progressEl.style.setProperty('--p', f.toFixed(4));
+          progressSteps.forEach((s, i) => {
+            s.classList.toggle('active', p >= i + 1 - 0.02);
+          });
+        }
         const current = Math.floor(Math.min(p, n - 1));
         const frac = Math.min(p - current, 1);
         let t = 0;
